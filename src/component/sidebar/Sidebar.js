@@ -16,10 +16,13 @@ import LoopIcon from "@material-ui/icons/Loop"
 import SidebarOption from './SidebarOptions'
 
 import db from '../../firebase';
+import { useStateValue } from '../../StateProvider'
+
 
 
 function Sidebar() {
     const [channels, setChannels] = useState([]);
+    const [{ user }] = useStateValue();
 
     useEffect(() => {
 
@@ -35,7 +38,6 @@ function Sidebar() {
         })
     }, []);
 
-    console.log(channels);
 
     return (
         <div className="sidebar">
@@ -44,7 +46,7 @@ function Sidebar() {
                     <h2>DayNight Programmer</h2>
                     <h3>
                         <FiberManualRecordIcon />
-                        Sambhu
+                        {user?.displayName}
                     </h3>
                 </div>
 
@@ -61,7 +63,7 @@ function Sidebar() {
             <hr />
 			<SidebarOption Icon={ExpandMoreIcon} title="Channels" />
             <hr />
-			<SidebarOption Icon={AddIcon} title="Add Channel" />
+			<SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
 
             {/* pulling it from database */}
             {channels.map(channel => (
