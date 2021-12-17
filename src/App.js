@@ -1,15 +1,13 @@
-import './App.css';
-import Header from './component/header/Header';
-import Sidebar from './component/sidebar/Sidebar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Chat from './component/chat/Chat'
-import Login from './component/login/Login';
-import { useStateValue } from './StateProvider';
-
+import "./App.css";
+import Header from "./component/header/Header";
+import Sidebar from "./component/sidebar/Sidebar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Chat from "./component/chat/Chat";
+import Login from "./component/login/Login";
+import { useStateValue } from "./StateProvider";
 
 function App() {
-
-  const [{ user }, dispatch] = useStateValue()
+  const [{ user }, dispatch] = useStateValue();
 
   return (
     <div className="app">
@@ -31,11 +29,9 @@ function App() {
                   <h1>welcome</h1>
                 </Router>
               </Switch>
-
             </div>
           </>
         )}
-
       </Router>
     </div>
   );
